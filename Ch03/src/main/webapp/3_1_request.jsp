@@ -100,7 +100,5 @@
 		사용자IP : <%= request.getRemoteAddr() %><br />
 	</p>
 	
-	
-	
 </body>
 </html>
