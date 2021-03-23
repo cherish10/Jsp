@@ -22,6 +22,10 @@
 	<table border="1">
 		<tr>
 			<td>이름</td>
+			<td><%=name %></td>
+		</tr>
+		<tr>
+			<td>성별</td>
 			<td>
 				<%
 					if(gender.equals("1")){ //문자열 배열은 equals를 사용.
@@ -31,10 +35,6 @@
 					}
 				%>
 			</td>
-		</tr>
-		<tr>
-			<td>성별</td>
-			<td><%= gender %></td>
 		</tr>
 		<tr>
 			<td>취미</td>
