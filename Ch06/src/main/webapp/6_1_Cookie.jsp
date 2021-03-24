@@ -6,7 +6,7 @@
 	<title>6_1_Cookie</title>
 	
 	<!-- 
-		날짜 :
+		날짜 : 2021/03/24
 		이름 :
 		내용 : JSP Cookie 실습하기
 		
