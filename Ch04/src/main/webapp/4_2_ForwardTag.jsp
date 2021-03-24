@@ -9,12 +9,19 @@
 		날짜 :2021/03/24
 		이름 :
 		내용 :JSP Include 액션태그 실습하기
-		
-		
 	 -->
 	
 </head>
 <body>
-	<2.JSP forward
+	<h3>2. Forward 액션태그</h3>
+	
+	<jsp:forward page="./4_1_Include.jsp"></jsp:forward>
+	
+	<%
+		//참고 pageContext forward 실행
+		//pageContext.forward("./4_1_Include.jsp");
+	
+	%>
+	
 </body>
 </html>
