@@ -1,5 +1,5 @@
 <%@page import="java.util.ArrayList"%>
-<%@page import="sub1.UserBean"%>
+<%@page import="sub1.MemberBean"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -7,7 +7,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	//데이터베이스 처리 1~6 단계
+//데이터베이스 처리 1~6 단계
 	String host="jdbc:mysql://192.168.10.114:3306/lhj";
 	String user="lhj";
 	String pass="1234";
@@ -27,10 +27,10 @@
 	
 	//5단계 - 실행결과 처리(SELECT일 경우)
 	
-	List<UserBean> ublist = new ArrayList<>();
+	List<MemberBean> ublist = new ArrayList<>();
 	
 	while(rs.next()){
-		UserBean ub = new UserBean();
+		MemberBean ub = new MemberBean();
 		
 		//String uid = rs.getString(1);
 		//String name = rs.getString(2);
@@ -80,7 +80,9 @@
 			<th>나이</th>
 			<th>수정/삭제</th>				
 		</tr>
-		<% for(UserBean ub : ublist) { %>
+		<%
+		for(MemberBean ub : ublist) {
+		%>
 			<tr>
 				<td><% ub.getUid();%></td>
 				<td><%ub.getName();%></td>
