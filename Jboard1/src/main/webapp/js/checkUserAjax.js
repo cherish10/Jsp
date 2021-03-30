@@ -26,8 +26,23 @@ $(function(){
 		
 	});
 	
+$(function(){	
 	// 별명 중복체크
+	var inputNick = $('input[nick=nick]');
 	
+	inputNick.focusout(function(){
+		var nick = $(this).val();
+		var jsonData = {'nick' : nick};
+		
+		$.ajax({
+			url: '/Jboard1/user/proc/checkNick.jsp',
+			type: 'get',
+			data: jsonData,
+			dataType: 'json',
+			success: function(data){
+	});
+	
+});	
 	// 이메일 중복체크
 	
 	// 휴대폰 중복체크
