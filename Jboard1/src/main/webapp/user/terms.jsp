@@ -41,15 +41,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
     <script>
     	$(function(){
-    		
-    		var isOkchk1 = $('input[name=chk1]').is(':checked');
-    		var isOkchk2 = $('input[name=chk2]').is(':checked');
-    		
     		var btnNext =  $('#user > div > a:eq(1)');
     		btnNext.click(function(){
     			
+    			var isOkchk1 = $('input[name=chk1]').is(':checked');
+        		var isOkchk2 = $('input[name=chk2]').is(':checked');
+    			
     			if(isOkchk1 && isOkchk2){
-    				return true;
+    				return true;	
     			}else{
     				alert('동의를 체크하셔야 합니다.');
     				return false;
