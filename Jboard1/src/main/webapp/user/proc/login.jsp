@@ -58,6 +58,5 @@
 	psmt.close();
 	conn.close();
 	
-	//게시판 목록 리다이렉트 
 
 %>

@@ -26,7 +26,7 @@
 	Statement stmt = conn.createStatement();
 	
 	//4단계
-	String sql = "INSERT INTO `JBOARD_USER` SET";
+	String sql  = "INSERT INTO `JBOARD_USER` SET ";
 		   sql += "`uid`='"+uid+"',";
 		   sql += "`pass`=PASSWORD('"+pass1+"'),";
 		   sql += "`name`='"+name+"',";
