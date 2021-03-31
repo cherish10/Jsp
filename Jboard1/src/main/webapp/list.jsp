@@ -19,7 +19,12 @@
 		return; // 프로그램 종료
 	}
 	
-	int total =0;
+	String pg = request.getParameter("pg");
+	
+	ArticleDao dao = ArticleDao.getInstance();
+	
+	int total = dao.selectCountArticle();
+	int lastPageNum = dao.getLastPageNum(total);
 	int start = 0;
 	
 	List<ArticleBean> articles = new ArrayList<>();
@@ -65,9 +70,9 @@
             <!-- 페이지 네비게이션 -->
             <div class="paging">
                 <a href="#" class="prev">이전</a>
-                <a href="#" class="num current">1</a>                
-                <a href="#" class="num">2</a>                
-                <a href="#" class="num">3</a>                
+                <% for(int i=1 ; i<=lastPageNum ; i++){ %>
+                	<a href="#" class="num"><%= i %></a>                
+                <% } %>
                 <a href="#" class="next">다음</a>
             </div>
 
