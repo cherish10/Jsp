@@ -1,3 +1,5 @@
+<%@page import="kr.co.jboard1.bean.ArticleBean"%>
+<%@page import="kr.co.jboard1.dao.ArticleDao"%>
 <%@page import="kr.co.jboard1.bean.UserBean"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="kr.co.jboard1.config.DBConfig"%>
@@ -12,25 +14,14 @@
 	
 	UserBean user = (UserBean)session.getAttribute("suser");
 	
-	Connection conn = DBConfig.getInstance().getConnection();
 	
-	String sql = "INSERT INTO `JBOARD_ARTICLE` SET ";
-		   sql += "`title`=?,";
-		   sql += "`content`=?,";
-		   sql += "`uid`=?,";
-		   sql += "`regip`=?,";
-		   sql += "`rdate`=NOW();";
-		   
-   PreparedStatement psmt = conn.prepareStatement(sql);
-	psmt.setString(1, title);
-	psmt.setString(2, content);
-	psmt.setString(3, user.getUid());
-	psmt.setString(4, regip);
-	
-	psmt.executeUpdate();
-
-	psmt.close();
-	conn.close();
+	ArticleBean article = new ArticleBean();
+	article.setTitle(title);
+	article.setContent(content);
+	article.setUid(user.getUid());
+	article.setRegip(regip);
+		
+	ArticleDao.getInstance().insertArticle(article);
 	
 	response.sendRedirect("/Jboard1/list.jsp");
 
