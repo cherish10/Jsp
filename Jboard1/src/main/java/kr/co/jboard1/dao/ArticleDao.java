@@ -19,18 +19,33 @@ public class ArticleDao {
 		return instance;
 	}
 	
-	public int getLimitStrart(String pg) {
+	public int[] getPageGroup(int CurrentPage, int LastPageNum) {
 		
-		int page = 1;
-		int start = 0;
+		int groupCurrent = (int)Math.ceil(LastPageNum / 10.0);
+		int groupStart = (groupCurrent - 1) * 10 + 1;
+		int groupEnd = groupCurrent * 10;
 		
-		if(pg != null) {
-			page = Integer.parseInt(pg);
-			start = (page - 1) * 10;
+		if(groupEnd > LastPageNum) {
+			groupEnd = LastPageNum;
 		}
 		
-		return start;
+		int[] groups = {groupStart, groupEnd};
 		
+		return groups;
+	}
+	
+	
+	public int getCurrentPage(String pg) {
+		int currentPage = 1;
+		
+		if(pg != null) {
+			currentPage = Integer.parseInt(pg);
+		}
+		return currentPage;
+	}
+	
+	public int getLimitStart(int currentPage) {
+		return (currentPage - 1) * 10;
 	}
 	
 	public int getLastPageNum(int total) {
@@ -68,21 +83,19 @@ public class ArticleDao {
 	
 	
 	public void insertArticle(ArticleBean article) throws Exception {
-		
+	
 		Connection conn = DBConfig.getInstance().getConnection();
 		
-		
+
 		PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_ARTICLE);
 		psmt.setString(1, article.getTitle());
 		psmt.setString(2, article.getContent());
 		psmt.setString(3, article.getUid());
 		psmt.setString(4, article.getRegip());
 		
-		
+
 		psmt.executeUpdate();
-		
-		
-		
+
 		psmt.close();
 		conn.close();
 	}
@@ -90,14 +103,14 @@ public class ArticleDao {
 	public void selectArticle() throws Exception {}
 	
 	public List<ArticleBean> selectArticles(int start) throws Exception {
-	
+
 		Connection conn = DBConfig.getInstance().getConnection();
 		
-	
+
 		PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_ARTICLES);
 		psmt.setInt(1, start);
 		
-	
+
 		ResultSet rs = psmt.executeQuery();
 		
 	
@@ -120,6 +133,7 @@ public class ArticleDao {
 			
 			articles.add(ab);
 		}
+		
 		
 		rs.close();
 		psmt.close();

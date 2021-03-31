@@ -1,3 +1,4 @@
+<%@page import="java.rmi.activation.ActivationGroup_Stub"%>
 <%@page import="kr.co.jboard1.dao.ArticleDao"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.util.ArrayList"%>
@@ -25,7 +26,9 @@
 	
 	int total = dao.selectCountArticle();
 	int lastPageNum = dao.getLastPageNum(total);
-	int start = 0;
+	int currentPage = dao.getCurrentPage(pg);
+	int start       = dao.getLastPageNum(currentPage);
+	int[] groups 	= dao.getPageGroup(currentPage, lastPageNum);
 	
 	List<ArticleBean> articles = new ArrayList<>();
 	
@@ -69,11 +72,19 @@
 
             <!-- 페이지 네비게이션 -->
             <div class="paging">
-                <a href="#" class="prev">이전</a>
-                <% for(int i=1 ; i<=lastPageNum ; i++){ %>
-                	<a href="#" class="num"><%= i %></a>                
+            	
+            	<% if(groups[0] > 1){ %>
+                <a href="/Jboard1/list.jsp?pg=<%= groups[0] - 1 %>" class="prev">이전</a>
                 <% } %>
-                <a href="#" class="next">다음</a>
+                
+                <% for(int i=groups[0] ; i<=groups[1] ; i++){ %>
+                	<a href="/Jboard1/list.jsp?pg=<%= i %>" class="num <%= (currentPage == i) ? "current":"off" %>"><%= i %></a>                
+                <% } %>
+                
+                <% if(groups[1] < lastPageNum){ %>
+                <a href="/Jboard1/list.jsp?pg=<%= groups[1] + 1 %>" class="next">다음</a>
+                <% } %>
+                
             </div>
 
             <!-- 글쓰기 버튼 -->
