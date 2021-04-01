@@ -66,26 +66,28 @@
             <!-- 댓글리스트 -->
             <section class="commentList">
                 <h3>댓글목록</h3>
-                <% if(ab.getComment() > 0){ %>
-	                <% for(ArticleBean comment : comments){ %>
-			                <article class="comment">
-			                    <span>
-			                        <span><%= comment.getNick() %></span>
-			                        <span><%= comment.getRdate().substring(2, 10) %></span>
-			                    </span>
-			                    <textarea name="comment" readonly><%= comment.getContent() %></textarea>
-			                    <div>
-			                    	<% if(uid.equals(comment.getUid())){ %>
-			                        	<a href="#">삭제</a>
-			                        <% } %>
-			                    </div>
-			                </article>
-		                <% } %>
-                <%}else{%>
+                <% if(ab.getComment() < 0){ %>
+                	
+                	<% for(ArticleBean comment : comments){ %>
+		                <article class="comment">
+		                    <span>
+		                        <span><%= comment.getNick() %></span>
+		                        <span><%= comment.getRdate().substring(2, 10) %></span>
+		                    </span>
+		                    <textarea name="comment" readonly><%= comment.getContent() %></textarea>
+		                    <div>
+		                    	<% if(uid.equals(comment.getUid())){ %>
+		                        	<a href="/Jboard1/proc/deleteComment.jsp?seq=<%= comment.getSeq() %>&parent=<%= comment.getParent() %>">삭제</a>
+		                        <% } %>
+		                    </div>
+		                </article>
+	                <% } %>
+	                
+                <% }else{ %>
 	                <p class="empty">
 	                    등록된 댓글이 없습니다.
 	                </p>
-               <% } %> 
+                <% } %>
             </section>
 
             <!-- 댓글입력폼 -->

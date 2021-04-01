@@ -13,6 +13,7 @@
 	
 	// 데이터베이스 처리 - 원글의 댓글 카운트 -1
 	dao.updateArticleComment(parent);
+	
 	// 리다이렉트
 	response.sendRedirect("/Jboard1/view.jsp?seq="+parent);
 %>

@@ -2,7 +2,7 @@ package kr.co.jboard1.config;
 
 public class Sql {
 	
-	// User °ü·Ã
+	
 	public static final String SELECT_TERMS = "SELECT * FROM `JBOARD_TERMS`;";
 	
 	public static final String SELECT_USER  = "SELECT * FROM `JBOARD_USER` WHERE `uid`=? AND `pass`=PASSWORD(?);";
@@ -20,8 +20,8 @@ public class Sql {
 											   + "`rdate`=NOW();";
 	
 	
-	// Article °ü·Ã
-	public static final String SELECT_COUNT_ARTICLE = "SELECT COUNT(*) FROM `JBOARD_ARTICLE`;";
+
+	public static final String SELECT_COUNT_ARTICLE = "SELECT COUNT(*) FROM `JBOARD_ARTICLE`WHERE `parent` =0;";
 	
 	public static final String SELECT_ARTICLE  = "SELECT * FROM `JBOARD_ARTICLE` WHERE `seq`=?;"; 
 	public static final String SELECT_ARTICLES = "SELECT a.*, b.nick FROM `JBOARD_ARTICLE` AS a "
