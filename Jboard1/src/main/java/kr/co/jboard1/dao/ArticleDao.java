@@ -85,7 +85,29 @@ public class ArticleDao {
 		return total;
 	}
 	
-	public void insertArticle(ArticleBean article) throws Exception {
+	public int selectMaxSeq() throws Exception {
+		// 1,2단계
+		Connection conn = DBConfig.getInstance().getConnection();
+		// 3단계
+		Statement stmt = conn.createStatement();
+		// 4단계
+		ResultSet rs = stmt.executeQuery(Sql.SELECT_MAX_SEQ);
+		
+		// 5단계
+		int seq = 0;
+		if(rs.next()) {
+			seq = rs.getInt(1);
+		}
+		
+		// 6단계
+		rs.close();
+		stmt.close();
+		conn.close();
+		
+		return seq;
+	}
+	
+	public int insertArticle(ArticleBean article) throws Exception {
 		// 1,2단계
 		Connection conn = DBConfig.getInstance().getConnection();
 		
@@ -103,6 +125,11 @@ public class ArticleDao {
 		// 6단계
 		psmt.close();
 		conn.close();
+		
+		// 방금 INSERT한 글번호 가져오기
+		int seq = selectMaxSeq();
+		
+		return seq;
 	}
 	
 	public void insertComment(String parent, String content, String uid, String regip) throws Exception {
@@ -114,6 +141,25 @@ public class ArticleDao {
 		psmt.setString(2, content);
 		psmt.setString(3, uid);
 		psmt.setString(4, regip);
+		
+		// 4단계
+		psmt.executeUpdate();
+		
+		// 5단계
+		// 6단계
+		psmt.close();
+		conn.close();
+	}
+	
+	public void insertFile(int parent, String oldName, String newName) throws Exception {
+		// 1,2단계
+		Connection conn = DBConfig.getInstance().getConnection();
+		
+		// 3단계
+		PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_FILE);
+		psmt.setInt(1, parent);
+		psmt.setString(2, oldName);
+		psmt.setString(3, newName);
 		
 		// 4단계
 		psmt.executeUpdate();
@@ -274,7 +320,6 @@ public class ArticleDao {
 	}
 	
 	
-	
 	public void deleteArticle() throws Exception {}
 	
 	public void deleteComment(String seq) throws Exception {
@@ -293,4 +338,7 @@ public class ArticleDao {
 		psmt.close();
 		conn.close();
 	}
+	
+	
+	
 }
