@@ -11,7 +11,8 @@ import kr.co.jboard1.config.DBConfig;
 import kr.co.jboard1.config.Sql;
 
 public class UserDao {
-	// ½Ì±ÛÅæ °´Ã¼
+	
+		// ½Ì±ÛÅæ °´Ã¼
 		private static UserDao instance = new UserDao();
 		private UserDao() {}
 		
@@ -44,6 +45,47 @@ public class UserDao {
 			// 6´Ü°è
 			psmt.close();
 			conn.close();
+		}
+		
+		public UserBean selectUser(String uid, String pass)  throws Exception {
+			// 1, 2´Ü°è
+			Connection conn = DBConfig.getInstance().getConnection();
+			
+			// 3´Ü°è		
+			PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_USER);
+			psmt.setString(1, uid);
+			psmt.setString(2, pass);
+			
+			// 4´Ü°è
+			ResultSet rs = psmt.executeQuery();
+			
+			// 5´Ü°è
+			UserBean user = null;
+			
+			if(rs.next()){
+				// È¸¿øÀÌ ¸ÂÀ» °æ¿ì
+				user = new UserBean();
+				
+				user.setUid(rs.getString(1));
+				user.setPass(rs.getString(2));
+				user.setName(rs.getString(3));
+				user.setNick(rs.getString(4));
+				user.setEmail(rs.getString(5));
+				user.setHp(rs.getString(6));
+				user.setGrade(rs.getInt(7));
+				user.setZip(rs.getString(8));
+				user.setAddr1(rs.getString(9));
+				user.setAddr2(rs.getString(10));
+				user.setRegip(rs.getString(11));
+				user.setRdate(rs.getString(12));
+			}
+			
+			// 6´Ü°è
+			rs.close();
+			psmt.close();
+			conn.close();
+			
+			return user;
 		}
 		
 		public void selectUser()  throws Exception {}
