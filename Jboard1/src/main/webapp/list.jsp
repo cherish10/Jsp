@@ -1,4 +1,3 @@
-<%@page import="java.rmi.activation.ActivationGroup_Stub"%>
 <%@page import="kr.co.jboard1.dao.ArticleDao"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.util.ArrayList"%>
@@ -29,6 +28,7 @@
 	int currentPage = dao.getCurrentPage(pg);
 	int start       = dao.getLastPageNum(currentPage);
 	int[] groups 	= dao.getPageGroup(currentPage, lastPageNum);
+	int pageStartNum = dao.getpageStartNum(total, start);
 	
 	List<ArticleBean> articles = new ArrayList<>();
 	
@@ -59,7 +59,7 @@
                     </tr>
                     <% for(ArticleBean ab : articles){ %>
 	                    <tr>
-	                        <td><%= ab.getSeq() %></td>
+	                        <td><%= pageStartNum-- %></td>
 	                        <td><a href="./view.html"><%= ab.getTitle() %></a>&nbsp;[<%= ab.getComment() %>]</td>
 	                        <td><%= ab.getNick() %></td>
 	                        <td><%= ab.getRdate().substring(2, 10) %></td>

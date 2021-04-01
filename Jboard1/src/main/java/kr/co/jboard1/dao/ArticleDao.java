@@ -19,6 +19,10 @@ public class ArticleDao {
 		return instance;
 	}
 	
+	public int getpageStartNum(int total, int start) {
+		return total - start;
+	}
+	
 	public int[] getPageGroup(int CurrentPage, int LastPageNum) {
 		
 		int groupCurrent = (int)Math.ceil(LastPageNum / 10.0);
