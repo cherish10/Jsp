@@ -1,4 +1,19 @@
+<%@page import="kr.co.jboard1.bean.ArticleBean"%>
+<%@page import="kr.co.jboard1.dao.ArticleDao"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<% 
+	request.setCharacterEncoding("UTF-8");
+	
+	String seq = request.getParameter("seq");
+	
+	ArticleDao dao = ArticleDao.getInstance();
+	dao.updateArticleHit(seq);
+	
+	
+	ArticleBean ab = dao.selectArticle(seq);
+	
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

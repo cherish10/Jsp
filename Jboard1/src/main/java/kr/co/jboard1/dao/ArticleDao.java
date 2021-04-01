@@ -106,7 +106,41 @@ public class ArticleDao {
 		conn.close();
 	}
 	
-	public void selectArticle() throws Exception {}
+	public ArticleBean selectArticle(String seq) throws Exception {
+	
+		Connection conn = DBConfig.getInstance().getConnection();
+		
+		
+		PreparedStatement psmt = conn.prepareStatement(Sql.SELECT_ARTICLES);
+		psmt.setString(1, seq);
+	
+		
+		ResultSet rs = psmt.executeQuery();
+		
+	
+		ArticleBean ab = new ArticleBean();
+		
+		if(rs.next()) {
+			ab.setSeq(rs.getInt(1));
+			ab.setParent(rs.getInt(2));
+			ab.setComment(rs.getInt(3));
+			ab.setCate(rs.getString(4));
+			ab.setTitle(rs.getString(5));
+			ab.setContent(rs.getString(6));
+			ab.setFile(rs.getInt(7));
+			ab.setHit(rs.getInt(8));
+			ab.setUid(rs.getString(9));
+			ab.setRegip(rs.getString(10));
+			ab.setRdate(rs.getString(11));
+		}
+				
+	
+		rs.close();
+		psmt.close();
+		conn.close();
+		
+		return ab;
+	}
 	
 	public List<ArticleBean> selectArticles(int start) throws Exception {
 
@@ -149,6 +183,22 @@ public class ArticleDao {
 	}
 	
 	public void updateArticle() throws Exception {}
+	
+	public void updateArticleHit(String seq) throws Exception {
+	
+		Connection conn = DBConfig.getInstance().getConnection();
+		
+	
+		PreparedStatement psmt = conn.prepareStatement(Sql.UPDATE_ARTICLE_HIT);
+		psmt.setString(1, seq);
+		
+		
+		psmt.executeUpdate();
+		
+		
+		psmt.close();
+		conn.close();
+	}
 	
 	public void deleteArticle() throws Exception {}
 }
