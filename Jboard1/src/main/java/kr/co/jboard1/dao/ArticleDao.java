@@ -9,6 +9,7 @@ import java.util.List;
 
 import kr.co.jboard1.bean.ArticleBean;
 import kr.co.jboard1.config.DBConfig;
+import kr.co.jboard1.config.Sql;
 
 public class ArticleDao {
 	
@@ -18,6 +19,7 @@ public class ArticleDao {
 	public static ArticleDao getInstance() {
 		return instance;
 	}
+	
 	
 	public int getpageStartNum(int total, int start) {
 		return total - start;
