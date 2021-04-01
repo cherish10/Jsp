@@ -14,6 +14,7 @@ public class UserBean {
 	private String addr2;
 	private String regip;
 	private String rdate;
+	
 	public String getUid() {
 		return uid;
 	}

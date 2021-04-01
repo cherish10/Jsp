@@ -19,19 +19,20 @@
 		return; // 프로그램 종료
 	}
 	
+	// 전송 데이터 수신
 	String pg = request.getParameter("pg");
 	
-	ArticleDao dao = ArticleDao.getInstance();
+	// 페이지 관련 처리
+	ArticleDao dao  = ArticleDao.getInstance();
+	int total        = dao.selectCountArticle();
+	int lastPageNum  = dao.getLastPageNum(total);
+	int currentPage  = dao.getCurrentPage(pg);
+	int start        = dao.getLimitStart(currentPage);
+	int[] groups     = dao.getPageGroup(currentPage, lastPageNum);
+	int pageStartNum = dao.getPageStartNum(total, start);  
 	
-	int total = dao.selectCountArticle();
-	int lastPageNum = dao.getLastPageNum(total);
-	int currentPage = dao.getCurrentPage(pg);
-	int start       = dao.getLastPageNum(currentPage);
-	int[] groups 	= dao.getPageGroup(currentPage, lastPageNum);
-	int pageStartNum = dao.getpageStartNum(total, start);
-	
-	List<ArticleBean> articles = new ArrayList<>();
-	
+	// 데이터베이스 처리
+	List<ArticleBean> articles = dao.selectArticles(start);
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +61,7 @@
                     <% for(ArticleBean ab : articles){ %>
 	                    <tr>
 	                        <td><%= pageStartNum-- %></td>
-	                        <td><a href="/Jboard1/view.jsp"><%= ab.getTitle() %></a>&nbsp;[<%= ab.getComment() %>]</td>
+	                        <td><a href="/Jboard1/view.jsp?seq=<%= ab.getSeq() %>"><%= ab.getTitle() %></a>&nbsp;[<%= ab.getComment() %>]</td>
 	                        <td><%= ab.getNick() %></td>
 	                        <td><%= ab.getRdate().substring(2, 10) %></td>
 	                        <td><%= ab.getHit() %></td>

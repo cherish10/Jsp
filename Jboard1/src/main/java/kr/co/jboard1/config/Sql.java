@@ -2,6 +2,7 @@ package kr.co.jboard1.config;
 
 public class Sql {
 	
+	// User °ü·Ã
 	public static final String SELECT_TERMS = "SELECT * FROM `JBOARD_TERMS`;";
 	
 	public static final String SELECT_USER  = "SELECT * FROM `JBOARD_USER` WHERE `uid`=? AND `pass`=PASSWORD(?);";
@@ -19,15 +20,23 @@ public class Sql {
 											   + "`rdate`=NOW();";
 	
 	
-	
+	// Article °ü·Ã
 	public static final String SELECT_COUNT_ARTICLE = "SELECT COUNT(*) FROM `JBOARD_ARTICLE`;";
 	
-	public static final String SELECT_ARTICLE = "SELECT * FROM `JBOARD_ARTICLE` WHERE `seq`=?;";
+	public static final String SELECT_ARTICLE  = "SELECT * FROM `JBOARD_ARTICLE` WHERE `seq`=?;"; 
 	public static final String SELECT_ARTICLES = "SELECT a.*, b.nick FROM `JBOARD_ARTICLE` AS a "
 												+ "JOIN `JBOARD_USER` AS b "
 												+ "ON a.uid = b.uid "
+												+ "WHERE `parent`=0 "
 												+ "ORDER BY `seq` DESC "
 												+ "LIMIT ?, 10";
+	
+	public static final String SELECT_COMMENTS = "SELECT a.*, b.nick FROM `JBOARD_ARTICLE` AS a "
+												+ "JOIN `JBOARD_USER` AS b "
+												+ "ON a.uid = b.uid "
+												+ "WHERE `parent`=? "
+												+ "ORDER BY `seq` ASC;";
+	
 
 	public static final String INSERT_ARTICLE = "INSERT INTO `JBOARD_ARTICLE` SET "
 												+ "`title`=?, "
@@ -36,6 +45,20 @@ public class Sql {
 												+ "`regip`=?, "
 												+ "`rdate`=NOW();";
 	
+	public static final String INSERT_COMMENT = "INSERT INTO `JBOARD_ARTICLE` SET "
+												+ "`parent`=?,"
+												+ "`content`=?,"
+												+ "`uid`=?,"
+												+ "`regip`=?,"
+												+ "`rdate`=NOW();";
 	
 	public static final String UPDATE_ARTICLE_HIT = "UPDATE `JBOARD_ARTICLE` SET `hit` = `hit` + 1 WHERE `seq` = ?;";
+	public static final String UPDATE_ARTICLE_COMMENT_INC = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` + 1 WHERE `seq` = ?;";
+	public static final String UPDATE_ARTICLE_COMMENT_DEC = "UPDATE `JBOARD_ARTICLE` SET `comment` = `comment` - 1 WHERE `seq` = ?;";
+	
+	
+	public static final String DELETE_COMMENT = "DELETE FROM `JBOARD_ARTICLE` WHERE `seq`=?;";
+	
+	
 }
+

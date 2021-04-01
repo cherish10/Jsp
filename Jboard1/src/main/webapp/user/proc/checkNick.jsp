@@ -12,7 +12,7 @@
 	
 	// 데이터베이스 처리 1~6단계
 	String host = "jdbc:mysql://192.168.10.114:3306/lhj";
-	String user = "ihj";
+	String user = "lhj";
 	String pass = "1234";
 	
 	// 1단계
