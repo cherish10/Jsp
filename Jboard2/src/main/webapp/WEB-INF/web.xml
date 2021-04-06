@@ -22,14 +22,36 @@
   	</auth-constraint>
   </security-constraint>
   
+  <security-constraint>
+  	<web-resource-collection>
+  		<web-resource-name>free pages</web-resource-name>
+  		<url-pattern>/index.jsp</url-pattern>
+  	</web-resource-collection>
+  </security-constraint>
+  
   <!-- 컨트롤러 등록 -->
   <servlet>
-  	<servlet-name>MainContoller</servlet-name>
-  	<servlet-class>kr.co.Jboard2_controller.MainContoller</servlet-class>
+  	<servlet-name>MainController</servlet-name>
+  	<servlet-class>kr.co.jboard2.controller.MainController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>MainContoller</servlet-name>
+  	<servlet-name>MainController</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
+  
+  <!-- 전송 데이터 문자 데이터 설정 -->
+  <filter>
+  	<filter-name>SetCharacterEncodingFilter</filter-name>
+  	<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>SetCharacterEncodingFilter</filter-name>
+  	<url-pattern>*.do</url-pattern>
+  </filter-mapping>
+  
 </web-app>
