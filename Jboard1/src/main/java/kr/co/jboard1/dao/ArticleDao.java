@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kr.co.jboard1.bean.ArticleBean;
+import kr.co.jboard1.bean.FileBean;
 import kr.co.jboard1.config.DBConfig;
 import kr.co.jboard1.config.Sql;
 
@@ -115,8 +116,9 @@ public class ArticleDao {
 		PreparedStatement psmt = conn.prepareStatement(Sql.INSERT_ARTICLE);
 		psmt.setString(1, article.getTitle());
 		psmt.setString(2, article.getContent());
-		psmt.setString(3, article.getUid());
-		psmt.setString(4, article.getRegip());
+		psmt.setInt(3, article.getFile());
+		psmt.setString(4, article.getUid());
+		psmt.setString(5, article.getRegip());
 		
 		// 4단계
 		psmt.executeUpdate();
@@ -183,6 +185,7 @@ public class ArticleDao {
 		
 		// 5단계
 		ArticleBean ab = new ArticleBean();
+		FileBean fb = new FileBean();
 		
 		if(rs.next()) {
 			ab.setSeq(rs.getInt(1));
@@ -196,6 +199,15 @@ public class ArticleDao {
 			ab.setUid(rs.getString(9));
 			ab.setRegip(rs.getString(10));
 			ab.setRdate(rs.getString(11));
+			
+			fb.setSeq(rs.getInt(12));
+			fb.setParent(rs.getInt(13));
+			fb.setOldName(rs.getString(14));
+			fb.setNewName(rs.getString(15));
+			fb.setDownload(rs.getInt(16));
+			fb.setRdate(rs.getString(17));
+			
+			ab.setFb(fb);
 		}
 				
 		// 6단계
@@ -302,7 +314,23 @@ public class ArticleDao {
 		conn.close();
 	}
 	
-	public void updateArticleComment(String seq) throws Exception {
+	public void updateArticleCommentInc(String seq) throws Exception {
+		// 1,2단계
+		Connection conn = DBConfig.getInstance().getConnection();
+		
+		// 3단계
+		PreparedStatement psmt = conn.prepareStatement(Sql.UPDATE_ARTICLE_COMMENT_INC);
+		psmt.setString(1, seq);
+		
+		// 4단계
+		psmt.executeUpdate();
+		
+		// 5단계
+		// 6단계
+		psmt.close();
+		conn.close();
+	}
+	public void updateArticleCommentDec(String seq) throws Exception {
 		// 1,2단계
 		Connection conn = DBConfig.getInstance().getConnection();
 		

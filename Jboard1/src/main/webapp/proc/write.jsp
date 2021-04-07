@@ -32,6 +32,7 @@
 	ArticleBean article = new ArticleBean();
 	article.setTitle(title);
 	article.setContent(content);
+	article.setFile(file != null ? 1 : 0); //파일이 null이 아니면 1이다(즉, 파일이 있다는 것).
 	article.setUid(user.getUid());
 	article.setRegip(regip);
 	

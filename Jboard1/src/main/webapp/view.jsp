@@ -1,3 +1,4 @@
+<%@page import="kr.co.jboard1.bean.FileBean"%>
 <%@page import="kr.co.jboard1.bean.UserBean"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.co.jboard1.bean.ArticleBean"%>
@@ -41,12 +42,12 @@
                     <td>제목</td>
                     <td><input type="text" name="title" value="<%= ab.getTitle() %>" readonly/></td>
                 </tr>
-                <% if(ab.getFile() > 0){ %>
+                <% if(ab.getFile() > 0){%>
                 <tr>
                     <td>첨부파일</td>
                     <td>
-                        <a href="#">2020년 상반기 매출자료.xls</a>
-                        <span>7회 다운로드</span>
+                        <a href="#"><%= ab.getFb().getOldName() %></a>
+                        <span><%=ab.getFb().getDownload() %>회 다운로드</span>
                     </td>
                 </tr>
                   <% } %>
@@ -66,7 +67,7 @@
             <!-- 댓글리스트 -->
             <section class="commentList">
                 <h3>댓글목록</h3>
-                <% if(ab.getComment() < 0){ %>
+                <% if(ab.getComment() > 0){ %>
                 	
                 	<% for(ArticleBean comment : comments){ %>
 		                <article class="comment">

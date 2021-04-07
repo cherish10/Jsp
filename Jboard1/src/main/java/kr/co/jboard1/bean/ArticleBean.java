@@ -14,7 +14,17 @@ public class ArticleBean {
 	private String regip;
 	private String rdate;
 	
+	//추가필드
 	private String nick;
+	private FileBean fb;
+	
+	public FileBean getFb() {
+		return fb;
+	}
+	
+	public void setFb(FileBean fb) {
+		this.fb = fb;
+	}
 	
 	public String getNick() {
 		return nick;
