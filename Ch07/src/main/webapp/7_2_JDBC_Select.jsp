@@ -1,5 +1,6 @@
+<%@page import="org.apache.catalina.User"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="sub1.MemberBean"%>
+<%@page import="sub1.UserBean"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -27,10 +28,10 @@
 	
 	//5단계 - 실행결과 처리(SELECT일 경우)
 	
-	List<MemberBean> ublist = new ArrayList<>();
+	List<UserBean> ublist = new ArrayList<>();
 	
 	while(rs.next()){
-		MemberBean ub = new MemberBean();
+		UserBean ub = new UserBean();
 		
 		//String uid = rs.getString(1);
 		//String name = rs.getString(2);
@@ -81,7 +82,7 @@
 			<th>수정/삭제</th>				
 		</tr>
 		<%
-		for(MemberBean ub : ublist) {
+		for(UserBean ub : ublist) {
 		%>
 			<tr>
 				<td><% ub.getUid();%></td>
