@@ -5,6 +5,31 @@
     <meta charset="UTF-8">
     <title>회원가입</title>
     <link rel="stylesheet" href="/Jboard2/css/style.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+    $(function(){
+		
+		$('input[name=uid]').focusout(function(){
+			var uid = $(this).val();
+			var jsonData = {'uid': uid};
+			
+			$.ajax({
+				url: '/Jboard2/user/checkUid.do',
+				type: 'get',
+				data: jsonData,
+				dataType: 'json',
+				success: function(data){				
+					if(data.result == 0){
+						$('.resultId').css('color', 'green').text('사용 가능한 아이디 입니다.');
+					}else{
+						$('.resultId').css('color', 'red').text('이미 사용중인 아이디 입니다.');
+					}
+				}
+			});
+		});
+	});
+    	
+    </script>
 </head>
 <body>
     <div id="wrapper">
