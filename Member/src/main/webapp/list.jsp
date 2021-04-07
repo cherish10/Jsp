@@ -60,7 +60,7 @@
 			<th>입사일</th>
 			<th>관리</th>
 		</tr>
-		<% for(MemberBean mb : mbList){ %>
+		<% for(MemberBean mb : mblist){ %>
 			<tr>
 				<td><%= mb.getUid() %></td>
 				<td><%= mb.getName() %></td>
