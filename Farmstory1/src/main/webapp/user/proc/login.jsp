@@ -1,8 +1,8 @@
-<%@page import="kr.co.Farmstory1.config.Sql"%>
-<%@page import="kr.co.Farmstory1.bean.UserBean"%>
+<%@page import="kr.co.farmstory1.config.Sql"%>
+<%@page import="kr.co.farmstory1.bean.UserBean"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="kr.co.Farmstory1.config.DBConfig"%>
+<%@page import="kr.co.farmstory1.config.DBConfig"%>
 <%@page import="java.sql.Connection"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%

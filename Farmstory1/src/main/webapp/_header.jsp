@@ -1,4 +1,4 @@
-<%@page import="kr.co.Farmstory1.bean.UserBean"%>
+<%@page import="kr.co.farmstory1.bean.UserBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	UserBean ub = (UserBean) session.getAttribute("suser");
@@ -27,7 +27,23 @@
 
             $('#tabs').tabs();
 
-        });
+        	});
+        
+        $(function(){
+        	var btnNext = $('#user > div > a:eq(1)');
+        	btnNext.click(function(){
+        		var Okchk1 = $('input[name=chk1]').is(':checked');
+        		var Okchk2 = $('input[name=chk2]').is(':checked');
+        	
+        		if(Okchk1 && Okchk2){
+        			return true;
+        		}else{
+        			alert('모두 동의해야됩니다.');
+        			return false;
+        		}
+        	})
+        	
+        })
     </script>
 
 </head>
@@ -49,9 +65,9 @@
             
             <ul class="gnb">
                 <li><a href="/Farmstory1/introduction/hello.jsp">팜스토리소개</a></li>
-                <li><a href="/Farmstory1/board/list.jsp?group=market"><img src="/Farmstory1/img/head_menu_badge.png" alt="30%"/>장보기</a></li>
-                <li><a href="/Farmstory1/board/list.jsp?group=croptalk">농작물이야기</a></li>
-                <li><a href="/Farmstory1/board/list.jsp?group=event">이벤트</a></li>
-                <li><a href="/Farmstory1/board/list.jsp?group=community">커뮤니티</a></li>
+                <li><a href="/Farmstory1/board/list.jsp?group=market&cate=market"><img src="/Farmstory1/img/head_menu_badge.png" alt="30%"/>장보기</a></li>
+                <li><a href="/Farmstory1/board/list.jsp?group=croptalk&cate=story">농작물이야기</a></li>
+                <li><a href="/Farmstory1/board/list.jsp?group=event&cate=event">이벤트</a></li>
+                <li><a href="/Farmstory1/board/list.jsp?group=community&cate=notice">커뮤니티</a></li>
             </ul>
         </header>

@@ -1,10 +1,11 @@
-<%@page import="kr.co.Farmstory1.dao.UserDao"%>
-<%@page import="kr.co.Farmstory1.bean.TermsBean"%>
+<%@page import="kr.co.farmstory1.dao.UserDao"%>
+<%@page import="kr.co.farmstory1.bean.TermsBean"%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../_header.jsp" %>
 <%
 	TermsBean tb = UserDao.getInstance().selectTerms();
 %>
+
 <section id="user" class="terms">
     <table>
         <caption>사이트 이용약관</caption>

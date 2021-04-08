@@ -2,4 +2,5 @@
 <%
 	session.invalidate();
 	response.sendRedirect("/Farmstory1/index.jsp");	
+	
 %>
