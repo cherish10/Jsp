@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>회원가입</title>
-    <link rel="stylesheet" href="../css/style.css"/>
-</head>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:include page="../_header.jsp"></jsp:include>
 <body>
     <div id="wrapper">
         <section id="user" class="register">
@@ -84,6 +79,4 @@
 
             </form>
         </section>
-    </div>    
-</body>
-</html>
+<jsp:include page="../_footer.jsp"></jsp:include>

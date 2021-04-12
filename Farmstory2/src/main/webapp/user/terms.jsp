@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>약관</title>
-    <link rel="stylesheet" href="../css/style.css"/>    
-</head>
-<body>
-    <div id="wrapper">
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:include page="../_header.jsp"></jsp:include>
         <section id="user" class="terms">
             <table>
                 <caption>사이트 이용약관</caption>
@@ -35,7 +28,4 @@
                 <a href="./register.html">다음</a>
             </div>
         </section>
-    </div>
-    
-</body>
-</html>
+ <jsp:include page="../_footer.jsp"></jsp:include>

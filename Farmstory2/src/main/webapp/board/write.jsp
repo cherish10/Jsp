@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>글쓰기</title>
-    <link rel="stylesheet" href="./css/style.css"/>
-</head>
-<body>
-    <div id="wrapper">
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+<jsp:include page="../_header.jsp"></jsp:include>
         <section id="board" class="write">
             <h3>글쓰기</h3>
             <article>
@@ -34,6 +27,4 @@
                 </form>
             </article>
         </section>
-    </div>
-</body>
-</html>
+ <jsp:include page="../_footer.jsp"></jsp:include>
