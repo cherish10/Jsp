@@ -41,6 +41,10 @@
 		map.put(key, list);
 	}
 	// 6
+	rs.close();
+	stmt.close();
+	conn.close();
+	
 %>
 <main>
     <div class="slider">
