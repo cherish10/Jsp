@@ -35,7 +35,6 @@
 	<h4>구구단</h4>
 	<table border ="1">
 		<tr>
-			<th>1단</th>
 			<th>2단</th>
 			<th>3단</th>
 			<th>4단</th>
