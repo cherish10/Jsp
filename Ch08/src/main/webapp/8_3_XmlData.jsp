@@ -22,4 +22,7 @@
 	       xml += "<pos>과장</pos";
 	       xml += "</members>";
 	       xml += "</members>";
+	       
+	// XML 출력
+	out.print(xml);
 %>
