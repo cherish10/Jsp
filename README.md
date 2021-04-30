@@ -45,3 +45,9 @@ JSP 수업예제
 > JSP - Greeting 출력   
 > JSP - Hello 출력   
 > JSP - Welcome 출력   
+## Jboard1  
+>http://13.125.27.183:8080/Jboard1/   
+## Jboard2   
+>
+## Farmstory1   
+## Farmstory2   
