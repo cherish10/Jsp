@@ -2,11 +2,16 @@
 JSP 수업예제   
 ## CH01   
 > JSP Hello World 출력   
+> http://13.125.27.183:8080/Ch01/hello.jsp   
 ## CH02
 > JSP - Scriptlet 실습하기   
+> http://13.125.27.183:8080/Ch02/2_1_Scriptlet.jsp   
 > JSP - 조건문 실습하기 (Condition)   
+> http://13.125.27.183:8080/Ch02/2_2_Condition.jsp   
 > JSP - 반복문 실습하기 (Loop)   
+> http://13.125.27.183:8080/Ch02/2_3_Loop.jsp   
 > JSP - 클래스 실습하기 (Class)   
+> 
 > JSP - 인클루드 실습하기 (Include)   
 ## CH03   
 > JSP - Request 내장객체 실습하기   
