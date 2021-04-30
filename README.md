@@ -50,13 +50,18 @@ JSP 수업예제
 > JSP - JsonData 실습하기   
 > http://13.125.27.183:8080/Ch08/8_2_JsonData.jsp   
 > JSP - XmlData   
-> 
+> http://13.125.27.183:8080/Ch08/8_3_XmlData.jsp   
 > JSP - XmlData 실습하기   
+> http://13.125.27.183:8080/Ch08/8_4_JsonData2.jsp   
 ## CH09   
 > JSP - EL1 (표현언어(Expression Language))   
+> http://13.125.27.183:8080/Ch09/9_1_EL1.jsp   
 > JSP - EL2 (표현언어 내장객체)   
+> http://13.125.27.183:8080/Ch09/9_2_EL2.jsp   
 > JSP - EL_Operator (표현언어 연산자)   
+> http://13.125.27.183:8080/Ch09/9_3_EL_Operator.jsp   
 > JSP - JSTL (Java Standards Tag Library)   
+> http://13.125.27.183:8080/Ch09/9_4_JSTL.jsp   
 ## Ch10   
 > JSP - Greeting 출력   
 > JSP - Hello 출력   
@@ -65,6 +70,8 @@ JSP 수업예제
 ## Jboard1  
 >http://13.125.27.183:8080/Jboard1/   
 ## Jboard2   
->
+>http://13.125.27.183:8080/Jboard2/   
 ## Farmstory1   
+http://13.125.27.183:8080/Farmstory1/   
 ## Farmstory2   
+
