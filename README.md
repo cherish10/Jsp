@@ -67,13 +67,13 @@ JSP 수업예제
 > JSP - Hello 출력   
 > JSP - Welcome 출력   
 > http://13.125.27.183:8080/Ch10/hello.do   
-## Jboard1  
+## Jboard1 <%%>     
 >http://13.125.27.183:8080/Jboard1/   
-## Jboard2   
+## Jboard2 $()    
 >http://13.125.27.183:8080/Jboard2/   
-## Farmstory1   
+## Farmstory1 <%%>       
 >http://13.125.27.183:8080/Farmstory1/   
-## Farmstory2   
+## Farmstory2  $()    
 >http://13.125.27.183:8080/Farmstory2/   
 ## member  
 >http://13.125.27.183:8080/Member/list.jsp
