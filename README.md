@@ -72,6 +72,10 @@ JSP 수업예제
 ## Jboard2   
 >http://13.125.27.183:8080/Jboard2/   
 ## Farmstory1   
-http://13.125.27.183:8080/Farmstory1/   
+>http://13.125.27.183:8080/Farmstory1/   
 ## Farmstory2   
-
+>http://13.125.27.183:8080/Farmstory2/   
+## member  
+>http://13.125.27.183:8080/Member/list.jsp
+>http://13.125.27.183:8080/Member/register.jsp
+>http://13.125.27.183:8080/Member/modify.jsp -- list에서 
