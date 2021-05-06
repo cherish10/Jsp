@@ -46,36 +46,36 @@ JSP 수업예제
 > http://13.125.27.183:8080/Ch07/7_2_JDBC_Select.jsp   
 ## CH08   
 > JSP - JsonData   
-> http://13.125.27.183:8080/jsp/Ch08/8_1_JsonData.jsp   
+> http://13.125.27.183:8080/Ch08/8_1_JsonData.jsp   
 > JSP - JsonData 실습하기   
-> http://13.125.27.183:8080/jsp/Ch08/8_2_JsonData.jsp   
+> http://13.125.27.183:8080/Ch08/8_2_JsonData.jsp   
 > JSP - XmlData   
-> http://13.125.27.183:8080/jsp/Ch08/8_3_XmlData.jsp   
+> http://13.125.27.183:8080/Ch08/8_3_XmlData.jsp   
 > JSP - XmlData 실습하기   
-> http://13.125.27.183:8080/jsp/Ch08/8_4_JsonData2.jsp   
+> http://13.125.27.183:8080/Ch08/8_4_JsonData2.jsp   
 ## CH09   
 > JSP - EL1 (표현언어(Expression Language))   
-> http://13.125.27.183:8080/jsp/Ch09/9_1_EL1.jsp   
+> http://13.125.27.183:8080/Ch09/9_1_EL1.jsp   
 > JSP - EL2 (표현언어 내장객체)   
-> http://13.125.27.183:8080/jsp/Ch09/9_2_EL2.jsp   
+> http://13.125.27.183:8080/Ch09/9_2_EL2.jsp   
 > JSP - EL_Operator (표현언어 연산자)   
-> http://13.125.27.183:8080/jsp/Ch09/9_3_EL_Operator.jsp   
+> http://13.125.27.183:8080/Ch09/9_3_EL_Operator.jsp   
 > JSP - JSTL (Java Standards Tag Library)   
-> http://13.125.27.183:8080/jsp/Ch09/9_4_JSTL.jsp   
+> http://13.125.27.183:8080/Ch09/9_4_JSTL.jsp   
 ## Ch10   
 > JSP - Greeting 출력   
 > JSP - Hello 출력   
 > JSP - Welcome 출력   
-> http://13.125.27.183:8080/jsp/Ch10/hello.do   
+> http://13.125.27.183:8080/Ch10/hello.do   
 ## Jboard1 <%%>     
->http://13.125.27.183:8080/jsp/Jboard1/   
+>http://13.125.27.183:8080/Jboard1/   
 ## Jboard2 $()    
->http://13.125.27.183:8080/jsp/Jboard2/   
+>http://13.125.27.183:8080/Jboard2/   
 ## Farmstory1 <%%>       
->http://13.125.27.183:8080/jsp/Farmstory1/   
+>http://13.125.27.183:8080/Farmstory1/   
 ## Farmstory2  $()    
->http://13.125.27.183:8080/jsp/Farmstory2/   
+>http://13.125.27.183:8080/Farmstory2/   
 ## member  
->http://13.125.27.183:8080/jsp/Member/list.jsp   
->http://13.125.27.183:8080/jsp/Member/register.jsp   
->http://13.125.27.183:8080/jsp/Member/modify.jsp -- list에서 
+>http://13.125.27.183:8080/Member/list.jsp   
+>http://13.125.27.183:8080/Member/register.jsp   
+>http://13.125.27.183:8080/Member/modify.jsp -- list에서 
