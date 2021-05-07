@@ -68,7 +68,7 @@ JSP 수업예제
 > JSP - Welcome 출력   
 > http://13.125.27.183:8080/Ch10/hello.do   
 ## Jboard1 <%%>     
->http://13.125.27.183:8080/Jboard1/   
+>http://13.125.27.183:8080/Jboard1/     
 ## Jboard2 $()    
 >http://13.125.27.183:8080/Jboard2/   
 ## Farmstory1 <%%>       
